@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>පොලේගොඩ ම.වි. - Polegoda Maha Vidyalaya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Sinhala:wght@300;400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-maroon: #800000;
+            --primary-gold: #FFD700;
+            --dark-maroon: #600000;
+            --light-gold: #FFF8DC;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --text-primary: #2c3e50;
+            --text-secondary: #6c757d;
+            --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif Sinhala', 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            scroll-behavior: smooth;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(128, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-decoration: none;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-gold);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .portal-btn {
+            background: var(--primary-gold);
+            color: var(--primary-maroon);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .portal-btn:hover {
+            background: var(--light-gold);
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-maroon) 0%, var(--dark-maroon) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,215,0,0.1)" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            animation: slideInDown 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        .cta-button {
+            background: var(--primary-gold);
+            color: var(--primary-maroon);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-maroon);
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-gold);
+            border-radius: 2px;
+        }
+
+        /* Principal Message */
+        .principal-message {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .principal-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .principal-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .principal-text h3 {
+            color: var(--primary-maroon);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Clubs Section */
+        .clubs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .club-card {
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .club-icon {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .club-card h3 {
+            color: var(--primary-maroon);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .club-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* History Section */
+        .history-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            border: 1px solid var(--glass-border);
+        }
+
+        .read-more-btn {
+            background: var(--primary-maroon);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .read-more-btn:hover {
+            background: var(--dark-maroon);
+            transform: translateY(-2px);
+        }
+
+        /* Programs Carousel */
+        .programs-carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            height: 400px;
+            margin: 3rem 0;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            padding: 0 2rem;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--primary-gold);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--primary-maroon);
+            color: white;
+            padding: 4rem 0;
+            margin-top: 4rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: var(--primary-gold);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Portal Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+        }
+
+        .modal h2 {
+            color: var(--primary-maroon);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+        }
+
+        .btn-primary {
+            background: var(--primary-maroon);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-maroon);
+            transform: translateY(-2px);
+        }
+
+        .role-selection {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .role-card {
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .role-card:hover,
+        .role-card.selected {
+            border-color: var(--primary-gold);
+            background: var(--light-gold);
+        }
+
+        .role-card i {
+            font-size: 2rem;
+            color: var(--primary-maroon);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Dashboard Styles */
+        .dashboard {
+            display: none;
+            padding: 100px 0 50px;
+        }
+
+        .dashboard.active {
+            display: block;
+        }
+
+        .dashboard-header {
+            background: var(--primary-maroon);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dashboard-nav {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-tab {
+            padding: 0.75rem 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .dashboard-tab:hover,
+        .dashboard-tab.active {
+            background: var(--primary-gold);
+            color: var(--primary-maroon);
+        }
+
+        .dashboard-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .upload-area {
+            border: 2px dashed var(--primary-gold);
+            border-radius: 10px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-area:hover {
+            background: var(--light-gold);
+        }
+
+        .upload-area i {
+            font-size: 3rem;
+            color: var(--primary-maroon);
+            margin-bottom: 1rem;
+        }
+
+        /* Animations */
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.6s ease-out;
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.6s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .principal-message {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .clubs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .role-selection {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .dashboard-nav {
+                flex-direction: column;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            color: white;
+            font-weight: 500;
+            z-index: 3000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            background: #28a745;
+        }
+
+        .notification.error {
+            background: #dc3545;
+        }
+
+        .notification.warning {
+            background: #ffc107;
+            color: #212529;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                පොලේගොඩ ම.වි.
+            </a>
+            <nav class="nav-menu">
+                <a href="#home">මුල් පිටුව</a>
+                <a href="#principal">විදුහල්පතිතුමා</a>
+                <a href="#clubs">සමාජ</a>
+                <a href="#history">ඉතිහාසය</a>
+                <a href="#programs">වැඩසටහන්</a>
+                <a href="#contact">සම්බන්ධතා</a>
+            </nav>
+            <a href="#" class="portal-btn" onclick="openPortal()">
+                <i class="fas fa-sign-in-alt"></i> ප්‍රවේශ द्वार
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Website Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>පොලේගොඩ මහා විද්‍යාලයට සාදරයෙන් පිළිගනිමු</h1>
+                <p>ශ්‍රී ලාංකීය අධ්‍යාපනයේ උතුම් සම්ප්‍රදායන් රැක ගනිමින් අනාගත පරම්පරාව දියුණු කරන ආයතනයකි</p>
+                <a href="#principal" class="cta-button">
+                    <i class="fas fa-arrow-down"></i> තවත් දැනගන්න
+                </a>
+            </div>
+        </section>
+
+        <!-- Principal Message Section -->
+        <section id="principal" class="section">
+            <h2 class="section-title">විදුහල්පතිතුමාගේ පණිවිඩය</h2>
+            <div class="principal-message glass-card">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjVGNUY1Ii8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNzAiIGZpbGw9IiM4MDAwMDAiLz4KPHJlY3QgeD0iMTMwIiB5PSIyNDAiIHdpZHRoPSIxNDAiIGhlaWdodD0iMTQwIiBmaWxsPSIjODAwMDAwIi8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNTAiIGZpbGw9IiNGRkY4REMiLz4KPHRleHQgeD0iMjAwIiB5PSIxNjAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM4MDAwMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCI+VklEPC90ZXh0Pgo8L3N2Zz4K" alt="Principal" class="principal-image">
+                <div class="principal-text">
+                    <h3>ගරු විදුහල්පති මහතා</h3>
+                    <p>පොලේගොඩ මහා විද්‍යාලයේ සිසුන්, ගුරුවරුන්, සහ දෙමාපියන් සියලු දෙනාට මගේ සුබපැතුම්. අපගේ ආයතනය ශ්‍රී ලාංකීය අධ්‍යාපනයේ සම්ප්‍රදායන් රැක ගනිමින් නවීන අධ්‍යාපන ක්‍රමවේද භාවිතා කරමින් සිසුන්ගේ සමස්ත වර්ධනය සඳහා කැපවී සිටී.</p>
+                    <p>අපගේ ලාභ වැදගත්කම වන්නේ සිසුන්ගේ ශාරීරික, මානසික, සහ ආධ්‍යාත්මික වර්ධනයට දායක වීමයි. අප සියලු දෙනාම එකට කටයුතු කරමින් පරිසරයට හිතකර, සමාජයට ප්‍රයෝජනවත් පුරවැසියන් බිහි කරන ලෙස අපේක්ෂා කරමි.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Clubs Section -->
+        <section id="clubs" class="section">
+            <h2 class="section-title">සමාජ සහ ඒකක</h2>
+            <div class="clubs-grid">
+                <div class="club-card glass-card">
+                    <i class="fas fa-dharmachakra club-icon"></i>
+                    <h3>බෞද්ධ සමාජය</h3>
+                    <p>බෞද්ධ සම්ප්‍රදායන් හා ධර්ම අධ්‍යාපනය ප්‍රවර්ධනය කරන සමාජයකි. සිසුන්ට ධර්ම දැනුම සහ සදාචාරමය වටිනාකම් ලබා දෙයි.</p>
+                </div>
+                <div class="club-card glass-card">
+                    <i class="fas fa-laptop-code club-icon"></i>
+                    <h3>තොරතුරු තාක්ෂණ සමාජය</h3>
+                    <p>නවීන තාක්ෂණික දැනුම සහ පරිගණක නිපුණතා සංවර්ධනය කරන සමාජයකි. ප්‍රෝග්‍රෑමිං සහ වෙබ් සැකසුම් පිළිබඳ දැනුම ලබා දෙයි.</p>
+                </div>
+                <div class="club-card glass-card">
+                    <i class="fas fa-camera club-icon"></i>
+                    <h3>මාධ්‍ය ඒකකය</h3>
+                    <p>පාසලේ සියලු වැඩසටහන් සහ සිදුවීම් සටහන් කර ප්‍රකාශනය කරන ඒකකයකි. ඡායාරූපකරණය සහ වීඩියෝ නිෂ්පාදනය පිළිබඳ දැනුම ලබා දෙයි.</p>
+                </div>
+                <div class="club-card glass-card">
+                    <i class="fas fa-music club-icon"></i>
+                    <h3>සංගීත සමාජය</h3>
+                    <p>සම්ප්‍රදායික සහ නවීන සංගීත අධ්‍යාපනය ලබා දෙන සමාජයකි. විවිධ සංගීත භාණ්ඩ හැසිරවීම සහ කණ්ඩායම් ගායනය උගන්වයි.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section id="history" class="section">
+            <h2 class="section-title">පාසලේ ඉතිහාසය</h2>
+            <div class="history-section">
+                <p>පොලේගොඩ මහා විද්‍යාලය 1952 වර්ෂයේ පිහිටුවන ලද ඓතිහාසික අධ්‍යාපන ආයතනයකි. මුලින් කුඩා පරිමාණයේ ගම්මාන පාසලක් ලෙස ආරම්භ වූ මෙම ආයතනය, වර්ෂ 70කට අධික කාලයක් පුරා ශ්‍රී ලාංකීය අධ්‍යාපනයට සේවය කර ඇත.</p>
+                <p>අද වන විට එහි ශිෂ්‍ය සංඛ්‍යාව 1500කට අධික වන අතර, ගුරු කාර්ය මණ්ඩලය 85කි. පාසල අධිකරණ ප්‍රදේශය තුළ උසස් අධ්‍යාපනයේ ප්‍රමුඛ ආයතනයක් ලෙස පිළිගනු ලැබේ.</p>
+                <button class="read-more-btn" onclick="toggleHistory()">
+                    <i class="fas fa-book-open"></i> තවත් කියවන්න
+                </button>
+                <div id="full-history" style="display: none; margin-top: 2rem;">
+                    <p>පාසලේ ආරම්භක කාලයේ සිට අදවන තෙක් විදුහල්පතිවරුන් 12 දෙනෙක් සේවය කර ඇත. ඔවුන්ගේ නායකත්වය යටතේ පාසල අධ්‍යාපනික සහ කළා ක්ෂේත්‍රයේ විශිෂ්ට ජයග්‍රහණ අත්කර ගත්තේය.</p>
+                    <p>පාසල තුළ ප්‍රතිසාධන වැඩසටහන් මගින් නව ශිෂ්‍ය නවාතැන්, විද්‍යා සහ පරිගණක රස්තුවන්, ක්‍රීඩා පිටිය සහ ශ්‍රවණාගාරය ගොඩනගා ඇත.</p>
+                    <p>2010 වර්ෂයේ සිට පාසල සම්පූර්ණයෙන්ම පරිගණකගත කර ඇති අතර, ඩිජිටල් ශ්‍රේණි කාමර සහ ඔන්ලයින් ඉගෙනුම් ක්‍රමවේදයන් සමඟ අධ්‍යාපනය සම්පූර්ණ කර ඇත.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section id="programs" class="section">
+            <h2 class="section-title">වැදගත් වැඩසටහන්</h2>
+            <div class="programs-carousel">
+                <div class="carousel-container" id="carousel-container">
+                    <div class="carousel-slide" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI0MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDQwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjODAwMDAwIi8+CjxjaXJjbGUgY3g9IjMwMCIgY3k9IjIwMCIgcj0iNTAiIGZpbGw9IiNGRkQ3MDAiLz4KPHJlY3QgeD0iNTAwIiB5PSIxNTAiIHdpZHRoPSIyMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjRkZENzAwIi8+CjxjaXJjbGUgY3g9IjkwMCIgY3k9IjIwMCIgcj0iNDAiIGZpbGw9IiNGRkQ3MDAiLz4KPC9zdmc+');">
+                        <div class="carousel-content">
+                            <h3>ක්‍රීඩා උත්සවය</h3>
+                            <p>වාර්ෂික ක්‍රීඩා උත්සවය මාර්තු මාසයේ පවත්වනු ලැබේ. සියලු ශිෂ්‍ය ශිෂ්‍යාවන් සහභාගී වන මහා උත්සවයකි.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI0MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDQwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjNDI2OGFmIi8+CjxwYXRoIGQ9Ik0yMDAgMTAwIEwzMDAgMTAwIEwzMDAgMzAwIEwyMDAgMzAwIFoiIGZpbGw9IiNGRkQ3MDAiLz4KPHBhdGggZD0iTTUwMCAxNTAgTDcwMCAxNTAgTDcwMCAyNTAgTDUwMCAyNTAgWiIgZmlsbD0iI0ZGRDcwMCIvPgo8Y2lyY2xlIGN4PSI5MDAiIGN5PSIyMDAiIHI9IjMwIiBmaWxsPSIjRkZENzAwIi8+Cjwvc3ZnPg==');">
+                        <div class="carousel-content">
+                            <h3>විද්‍යා ප්‍රදර්ශනය</h3>
+                            <p>සිසුන්ගේ විද්‍යා ප්‍රතිභාව ප්‍රදර්ශනය කරන වාර්ෂික විද්‍යා ප්‍රදර්ශනය මැයි මාසයේ පවත්වනු ලැබේ.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI0MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDQwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjMjI4YjIyIi8+CjxwYXRoIGQ9Ik0zMDAgMTAwIEw1MDAgMTAwIEw1MDAgMzAwIEwzMDAgMzAwIFoiIGZpbGw9IiNGRkQ3MDAiLz4KPHBhdGggZD0iTTcwMCAxNTAgTDkwMCAxNTAgTDkwMCAyNTAgTDcwMCAyNTAgWiIgZmlsbD0iI0ZGRDcwMCIvPgo8Y2lyY2xlIGN4PSIxNTAiIGN5PSIyMDAiIHI9IjQwIiBmaWxsPSIjRkZENzAwIi8+Cjwvc3ZnPg==');">
+                        <div class="carousel-content">
+                            <h3>සංස්කෘතික සංදර්ශනය</h3>
+                            <p>ශ්‍රී ලාංකීය සම්ප්‍රදායික කලාවන් සහ සංස්කෘතිය ප්‍රදර්ශනය කරන වාර්ෂික සංස්කෘතික සංදර්ශනය.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <div class="carousel-dot active" onclick="changeSlide(0)"></div>
+                    <div class="carousel-dot" onclick="changeSlide(1)"></div>
+                    <div class="carousel-dot" onclick="changeSlide(2)"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>ලිපිනය</h3>
+                    <p>පොලේගොඩ මහා විද්‍යාලය<br>
+                    පොලේගොඩ<br>
+                    කළුතර</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>දුරකථන</h3>
+                    <p>කාර්යාලය: 034-2234567<br>
+                    විදුහල්පති: 034-2234568<br>
+                    ෆැක්ස්: 034-2234569</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>ඊමේල්</h3>
+                    <p>info@polegodamv.edu.lk<br>
+                    principal@polegodamv.edu.lk<br>
+                    admin@polegodamv.edu.lk</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Portal Modal -->
+    <div id="portal-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closePortal()">&times;</span>
+            <h2>ප්‍රවේශ द्वार</h2>
+            
+            <!-- Login/Register Toggle -->
+            <div class="form-toggle" style="display: flex; margin-bottom: 2rem;">
+                <button id="login-tab" class="btn-primary" style="margin-right: 1rem; flex: 1;" onclick="showLogin()">ප්‍රවේශ වන්න</button>
+                <button id="register-tab" class="btn-primary" style="flex: 1; background: #6c757d;" onclick="showRegister()">ලියාපදිංචි වන්න</button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="login-form">
+                <div class="role-selection">
+                    <div class="role-card" data-role="teacher">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <div>ගුරුවරයා</div>
+                    </div>
+                    <div class="role-card" data-role="student">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>ශිෂ්‍යයා</div>
+                    </div>
+                    <div class="role-card" data-role="parent">
+                        <i class="fas fa-users"></i>
+                        <div>දෙමාපියන්</div>
+                    </div>
+                </div>
+                
+                <form id="login-form-fields">
+                    <div class="form-group">
+                        <label>පරිශීලක නාමය</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label>මුර පදය</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <div class="form-group" id="secret-code-group" style="display: none;">
+                        <label>රහස් කේතය</label>
+                        <input type="text" id="secret-code" placeholder="ගුරුවරුන් සඳහා රහස් කේතය">
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> ප්‍රවේශ වන්න
+                    </button>
+                </form>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form" style="display: none;">
+                <div class="role-selection">
+                    <div class="role-card" data-role="teacher">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <div>ගුරුවරයා</div>
+                    </div>
+                    <div class="role-card" data-role="student">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>ශිෂ්‍යයා</div>
+                    </div>
+                    <div class="role-card" data-role="parent">
+                        <i class="fas fa-users"></i>
+                        <div>දෙමාපියන්</div>
+                    </div>
+                </div>
+                
+                <form id="register-form-fields">
+                    <div class="form-group">
+                        <label>සම්පූර්ණ නම</label>
+                        <input type="text" id="register-fullname" required>
+                    </div>
+                    <div class="form-group">
+                        <label>පරිශීලක නාමය</label>
+                        <input type="text" id="register-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label>ඊමේල්</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>මුර පදය</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>මුර පදය නැවත ඇතුළු කරන්න</label>
+                        <input type="password" id="register-confirm-password" required>
+                    </div>
+                    <div class="form-group" id="register-secret-code-group" style="display: none;">
+                        <label>ගුරුවරුන් සඳහා රහස් කේතය</label>
+                        <input type="text" id="register-secret-code">
+                    </div>
+                    <div class="form-group" id="student-index-group" style="display: none;">
+                        <label>ශිෂ්‍ය ලේඛන අංකය</label>
+                        <input type="text" id="student-index">
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-user-plus"></i> ලියාපදිංචි වන්න
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Sections -->
+    <div id="teacher-dashboard" class="dashboard">
+        <div class="section">
+            <div class="dashboard-header">
+                <div>
+                    <h2>ගුරුවරයාගේ පැනලය</h2>
+                    <p>ආයුබෝවන්, <span id="teacher-name">ගුරුවරයා</span></p>
+                </div>
+                <button class="portal-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> ඉවත්වන්න
+                </button>
+            </div>
+            
+            <div class="dashboard-nav">
+                <div class="dashboard-tab active" onclick="showDashboardTab('upload-papers')">
+                    <i class="fas fa-file-pdf"></i> ප්‍රශ්න පත්‍ර
+                </div>
+                <div class="dashboard-tab" onclick="showDashboardTab('upload-marks')">
+                    <i class="fas fa-chart-line"></i> ලකුණු
+                </div>
+                <div class="dashboard-tab" onclick="showDashboardTab('my-uploads')">
+                    <i class="fas fa-folder-open"></i> මගේ ගොනු
+                </div>
+            </div>
+            
+            <div id="upload-papers" class="dashboard-content">
+                <h3>ප්‍රශ්න පත්‍ර උඩුගත කරන්න</h3>
+                <form id="upload-paper-form">
+                    <div class="form-group">
+                        <label>පන්තිය</label>
+                        <select id="paper-grade" required>
+                            <option value="">පන්තිය තෝරන්න</option>
+                            <option value="6">6 ශ්‍රේණිය</option>
+                            <option value="7">7 ශ්‍රේණිය</option>
+                            <option value="8">8 ශ්‍රේණිය</option>
+                            <option value="9">9 ශ්‍රේණිය</option>
+                            <option value="10">10 ශ්‍රේණිය</option>
+                            <option value="11">11 ශ්‍රේණිය</option>
+                            <option value="12">12 ශ්‍රේණිය</option>
+                            <option value="13">13 ශ්‍රේණිය</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>විෂයය</label>
+                        <select id="paper-subject" required>
+                            <option value="">විෂයය තෝරන්න</option>
+                            <option value="sinhala">සිංහල</option>
+                            <option value="english">ඉංග්‍රීසි</option>
+                            <option value="mathematics">ගණිතය</option>
+                            <option value="science">විද්‍යාව</option>
+                            <option value="history">ඉතිහාසය</option>
+                            <option value="geography">භූගෝල විද්‍යාව</option>
+                            <option value="buddhism">බුද්ධ ධර්මය</option>
+                            <option value="art">කලාව</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>ප්‍රශ්න පත්‍ර වර්ගය</label>
+                        <select id="paper-type" required>
+                            <option value="">වර්ගය තෝරන්න</option>
+                            <option value="term1">1 වන වාර</option>
+                            <option value="term2">2 වන වාර</option>
+                            <option value="term3">3 වන වාර</option>
+                            <option value="monthly">මාසික</option>
+                            <option value="weekly">සතිපතා</option>
+                            <option value="practice">පුහුණු</option>
+                        </select>
+                    </div>
+                    <div class="upload-area" onclick="document.getElementById('paper-file').click()">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>PDF ගොනුව මෙහි ඇද දමන්න හෝ ක්ලික් කරන්න</p>
+                        <input type="file" id="paper-file" accept=".pdf" style="display: none;" required>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-upload"></i> උඩුගත කරන්න
+                    </button>
+                </form>
+            </div>
+            
+            <div id="upload-marks" class="dashboard-content" style="display: none;">
+                <h3>ශිෂ්‍ය ලකුණු ඇතුළත් කරන්න</h3>
+                <form id="upload-marks-form">
+                    <div class="form-group">
+                        <label>පන්තිය</label>
+                        <select id="marks-grade" required>
+                            <option value="">පන්තිය තෝරන්න</option>
+                            <option value="6">6 ශ්‍රේණිය</option>
+                            <option value="7">7 ශ්‍රේණිය</option>
+                            <option value="8">8 ශ්‍රේණිය</option>
+                            <option value="9">9 ශ්‍රේණිය</option>
+                            <option value="10">10 ශ්‍රේණිය</option>
+                            <option value="11">11 ශ්‍රේණිය</option>
+                            <option value="12">12 ශ්‍රේණිය</option>
+                            <option value="13">13 ශ්‍රේණිය</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>විෂයය</label>
+                        <select id="marks-subject" required>
+                            <option value="">විෂයය තෝරන්න</option>
+                            <option value="sinhala">සිංහල</option>
+                            <option value="english">ඉංග්‍රීසි</option>
+                            <option value="mathematics">ගණිතය</option>
+                            <option value="science">විද්‍යාව</option>
+                            <option value="history">ඉතිහාසය</option>
+                            <option value="geography">භූගෝල විද්‍යාව</option>
+                            <option value="buddhism">බුද්ධ ධර්මය</option>
+                            <option value="art">කලාව</option>
+                        </select>
+                    </div>
+                    <div class="upload-area" onclick="document.getElementById('marks-file').click()">
+                        <i class="fas fa-file-excel"></i>
+                        <p>Excel ගොනුව මෙහි ඇද දමන්න හෝ ක්ලික් කරන්න</p>
+                        <input type="file" id="marks-file" accept=".xlsx,.xls,.csv" style="display: none;" required>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-upload"></i> ලකුණු ඇතුළත් කරන්න
+                    </button>
+                </form>
+            </div>
+            
+            <div id="my-uploads" class="dashboard-content" style="display: none;">
+                <h3>මගේ උඩුගත කළ ගොනු</h3>
+                <div id="uploaded-files-list">
+                    <p>කිසිදු ගොනුවක් උඩුගත කර නැත.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Dashboard -->
+    <div id="student-dashboard" class="dashboard">
+        <div class="section">
+            <div class="dashboard-header">
+                <div>
+                    <h2>ශිෂ්‍යයාගේ පැනලය</h2>
+                    <p>ආයුබෝවන්, <span id="student-name">ශිෂ්‍යයා</span></p>
+                </div>
+                <button class="portal-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> ඉවත්වන්න
+                </button>
+            </div>
+            
+            <div class="dashboard-nav">
+                <div class="dashboard-tab active" onclick="showDashboardTab('syllabus')">
+                    <i class="fas fa-book"></i> විෂය නිර්දේශ
+                </div>
+                <div class="dashboard-tab" onclick="showDashboardTab('papers')">
+                    <i class="fas fa-file-pdf"></i> ප්‍රශ්න පත්‍ර
+                </div>
+                <div class="dashboard-tab" onclick="showDashboardTab('marks')">
+                    <i class="fas fa-chart-line"></i> ලකුණු
+                </div>
+                <div class="dashboard-tab" onclick="showDashboardTab('assignments')">
+                    <i class="fas fa-tasks"></i> පැවරුම්
+                </div>
+            </div>
+            
+            <div id="syllabus" class="dashboard-content">
+                <h3>විෂය නිර්දේශ</h3>
+                <div class="form-group">
+                    <label>පන්තිය තෝරන්න</label>
+                    <select id="syllabus-grade" onchange="loadSyl
